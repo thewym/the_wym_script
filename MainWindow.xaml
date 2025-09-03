@@ -1,28 +1,36 @@
-﻿<Window
-    x:Class="the_wym_script.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:the_wym_script"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
-    Width="800"
-    Height="450"
-    mc:Ignorable="d">
-    <!--  Grid布局容器，添加了边距和行列定义  -->
-    <Grid Margin="20">
-        <!--  定义一行用于放置按钮（高度自适应内容）  -->
+﻿<Window x:Class="The_wym_script.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:The_wym_script"
+        xmlns:views="clr-namespace:The_wym_script.UI.Views"
+        xmlns:settingsViews="clr-namespace:The_wym_script.UI.Views.Settings"
+        Title="WYM启动器" Height="600" Width="800">
+    
+    <Grid>
+        <!-- 1. 顶部按钮栏 -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50"/> <!-- 按钮行 -->
+            <RowDefinition Height="*"/>  <!-- 内容显示行（占剩余空间） -->
         </Grid.RowDefinitions>
 
-        <!--  配置按钮  -->
-        <Button
-            Width="100"
-            Height="30"
-            Margin="0,10,0,0"
-            Click="ConfigButton_Click"
-            Content="配置"
-            FontSize="14" />
+        <!-- 顶部按钮：切换到主界面/设置界面
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button 
+                Content="主界面" 
+                Width="80" Height="30" 
+                Margin="5"
+                Click="HomeButton_Click"/>
+            
+            <Button 
+                Content="设置" 
+                Width="80" Height="30" 
+                Margin="5"
+                Click="SettingsButton_Click"/>
+        </StackPanel> -->
+
+        <!-- 2. 内容容器：动态显示不同界面 -->
+        <ContentControl 
+            Grid.Row="1" 
+            x:Name="MainContentContainer"/> <!-- 给容器起个名字，方便后台代码操作 -->
     </Grid>
 </Window>

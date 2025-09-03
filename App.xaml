@@ -1,8 +1,9 @@
-﻿<Application
-    x:Class="the_wym_script.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:the_wym_script"
-    StartupUri="MainWindow.xaml">
-    <Application.Resources />
+﻿<Application x:Class="The_wym_script.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:The_wym_script"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
 </Application>
