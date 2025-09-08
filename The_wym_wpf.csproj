@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+        
+        <!-- 版本信息 -->
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0.0</FileVersion>
+        <InformationalVersion>1.0.0-beta</InformationalVersion>
+        
+        <!-- 程序集元数据 -->
+        <AssemblyTitle>文件说明</AssemblyTitle>
+        <AssemblyDescription>这是一个基于.NET 8的WPF应用程序</AssemblyDescription>
+        <Company>我的公司</Company>
+        <Product>产品名称</Product>
+        <Copyright>版权</Copyright>
+        <Trademark>合法商标</Trademark>
+        <AssemblyCulture></AssemblyCulture>
+    </PropertyGroup>
+</Project>

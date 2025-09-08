@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/the_wym_script.csproj",
+                "${workspaceFolder}/The_wym_wpf.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/the_wym_script.csproj",
+                "${workspaceFolder}/The_wym_wpf.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/the_wym_script.csproj"
+                "${workspaceFolder}/The_wym_wpf.sln"
             ],
             "problemMatcher": "$msCompile"
         }

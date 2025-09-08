@@ -1,39 +1,47 @@
 
 ```
-the_wym_script
-├─ 📁.vscode
-│  ├─ 📄launch.json
-│  └─ 📄tasks.json
-├─ 📁Assets
-├─ 📁Core
-│  ├─ 📁Configuration
-│  └─ 📁Theme
-├─ 📁Resources
-│  ├─ 📁Fonts
-│  ├─ 📁Styles
-│  │  └─ 📄WindowControlStyles.xaml
-│  └─ 📁Themes
-│     ├─ 📁Dark
-│     │  └─ 📄DarkTheme.xaml
-│     ├─ 📁Default
-│     │  ├─ 📄Colors.xaml
-│     │  └─ 📄DefaultTheme.xaml
-│     └─ 📁Light
-│        └─ 📄LightTheme.xaml
-├─ 📁UI
-│  ├─ 📁Func
-│  └─ 📁Views
-│     ├─ 📁Settings
-│     │  ├─ 📄SettingsView.xaml
-│     │  └─ 📄SettingsView.xaml.cs
-│     ├─ 📄HomeView.xaml
-│     └─ 📄HomeView.xaml.cs
-├─ 📄.gitignore
-├─ 📄App.xaml
-├─ 📄App.xaml.cs
-├─ 📄AssemblyInfo.cs
-├─ 📄file_list.md
-├─ 📄MainWindow.xaml
-├─ 📄MainWindow.xaml.cs
-└─ 📄The_wym_script.csproj
+The_wym_wpf
+├─ App.xaml
+├─ App.xaml.cs
+├─ AssemblyInfo.cs
+├─ Assert
+├─ The_wym_wpf.csproj
+├─ The_wym_wpf.sln
+└─ Views
+   ├─ MainWindow
+   │  ├─ MainWindow.xaml
+   │  └─ MainWindow.xaml.cs
+   └─ SubWindow
+
+```
+```
+The_wym_wpf
+├─ .vs
+│  ├─ ProjectEvaluation
+│  ├─ slnx.sqlite
+│  ├─ The_wym_wpf
+│  │  ├─ DesignTimeBuild
+│  │  │  └─ .dtbcache.v2
+│  │  ├─ FileContentIndex
+│  │  │  └─ 1e72314c-4087-4821-9dc9-cc87073db9ff.vsidx
+│  │  └─ v17
+│  │     ├─ .futdcache.v2
+│  │     ├─ .suo
+│  │     ├─ .wsuo
+│  │     ├─ DocumentLayout.backup.json
+│  │     └─ DocumentLayout.json
+│  └─ VSWorkspaceState.json
+├─ App.xaml
+├─ App.xaml.cs
+├─ AssemblyInfo.cs
+├─ Assert
+├─ README.md
+├─ The_wym_wpf.csproj
+├─ The_wym_wpf.sln
+└─ Views
+   ├─ MainWindow
+   │  ├─ MainWindow.xaml
+   │  └─ MainWindow.xaml.cs
+   └─ SubWindow
+
 ```

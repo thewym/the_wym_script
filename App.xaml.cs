@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace The_wym_script;
+namespace The_wym_wpf;
 
 /// <summary>
 /// Interaction logic for App.xaml
