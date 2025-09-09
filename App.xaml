@@ -12,7 +12,7 @@
                 <!--  按钮样式逻辑  -->
                 <ResourceDictionary Source="/Resources/Styles/ButtonStyles.xaml" />
                 <!--  当前主题颜色表（切换主题只需改这里）  -->
-                <ResourceDictionary Source="/Resources/Themes/LightTheme/Colors.xaml" />
+                <ResourceDictionary Source="/Resources/Themes/DarkTheme/Colors.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -1,0 +1,23 @@
+<!-- 浅色主题颜色表：仅定义颜色值，键名与ButtonStyles.xaml严格对应 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 按钮正常状态颜色 -->
+    <SolidColorBrush x:Key="Button.Normal.Background" Color="#1F1F1F"/> 
+    <SolidColorBrush x:Key="Button.Normal.Border" Color="#DEE2E6"/>     <!-- 浅灰边框 -->
+    <SolidColorBrush x:Key="Button.Normal.Foreground" Color="#CCCCCC"/> <!-- 深灰文字 -->
+
+    <!-- 按钮悬停状态颜色 -->
+    <SolidColorBrush x:Key="Button.Hover.Background" Color="#E9ECEF"/>  <!-- 稍深灰背景 -->
+    <SolidColorBrush x:Key="Button.Hover.Border" Color="#CED4DA"/>      <!-- 稍深灰边框 -->
+
+    <!-- 按钮按下状态颜色 -->
+    <SolidColorBrush x:Key="Button.Pressed.Background" Color="#DEE2E6"/> <!-- 更深灰背景 -->
+    <SolidColorBrush x:Key="Button.Pressed.Border" Color="#ADB5BD"/>     <!-- 更深灰边框 -->
+
+    <!-- 按钮禁用状态颜色 -->
+    <SolidColorBrush x:Key="Button.Disabled.Background" Color="#F8F9FA"/> <!-- 禁用背景（浅灰） -->
+    <SolidColorBrush x:Key="Button.Disabled.Border" Color="#E9ECEF"/>     <!-- 禁用边框（更浅灰） -->
+    <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#ADB5BD"/> <!-- 禁用文字（灰色） -->
+
+</ResourceDictionary>

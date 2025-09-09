@@ -1,42 +1,79 @@
-<!--  按钮样式逻辑：适配.NET Core，利用原生CornerRadius属性  -->
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!--  合并通用基础样式  -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Resources/CommonStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Resources/CommonStyles.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--  基础按钮样式（继承通用属性，补充主题相关设置）  -->
     <Style
-        x:Key="BaseButtonStyle"
+        x:Key="BtnBaseStyle"
         BasedOn="{StaticResource CommonButtonBase}"
         TargetType="{x:Type Button}">
-        <!--  颜色引用主题表（.NET Core中DynamicResource支持更优）  -->
         <Setter Property="Background" Value="{DynamicResource Button.Normal.Background}" />
         <Setter Property="BorderBrush" Value="{DynamicResource Button.Normal.Border}" />
         <Setter Property="Foreground" Value="{DynamicResource Button.Normal.Foreground}" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True"
+                        UseLayoutRounding="True">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <!--  关闭按钮样式（继承基础样式，仅补充特有属性）  -->
+    <!--  关闭按钮样式（核心修改：添加 X 矢量图）  -->
     <Style
-        x:Key="CloseButtonStyle"
-        BasedOn="{StaticResource BaseButtonStyle}"
+        x:Key="BtnWinCloseStyle"
+        BasedOn="{StaticResource BtnBaseStyle}"
         TargetType="{x:Type Button}">
-        <Setter Property="Width" Value="32" />
+        <Setter Property="Width" Value="44" />
         <Setter Property="Height" Value="32" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="CornerRadius" Value="0" /> 
-        <!--  关闭按钮无边角  -->
-    </Style>
+        <Setter Property="Padding" Value="1" />
+        <!-- <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" /> -->
+        <Setter Property="Content">
+            <Setter.Value>
+                <Path
+                    x:Name="CloseIcon"
+                    Width="10"
+                    Height="10"
+                    Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                    Data="M1.5,1.5 L8.5,8.5 M8.5,1.5 L1.5,8.5"
+                    Stretch="Uniform"
+                    StrokeThickness="1" 
+                    StrokeLineJoin="Miter"
+                    SnapsToDevicePixels="True"
+                    />
+                    <!-- Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" -->
 
-    <!--  确认按钮样式  -->
-    <Style
-        x:Key="ConfirmButtonStyle"
-        BasedOn="{StaticResource BaseButtonStyle}"
-        TargetType="{x:Type Button}">
-        <Setter Property="Width" Value="80" />
-        <Setter Property="Height" Value="36" />
+            </Setter.Value>
+        </Setter>
+
+        <!--  原有交互触发器（保持不变，确保悬浮/按压效果正常）  -->
+        <Style.Triggers>
+            <!--  鼠标悬浮：背景变红、前景变白  -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="BorderBrush" Value="#E81123" />
+            </Trigger>
+            <!--  鼠标按压：背景变浅红  -->
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#F16F7A" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
