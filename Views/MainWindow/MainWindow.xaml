@@ -9,106 +9,36 @@
     Title="MainWindow"
     Width="800"
     Height="450"
-    WindowStyle="None"
-    mc:Ignorable="d" Cursor="Hand">
-    <Window.Resources>
-        <Style x:Key="CloseButtonStyle" TargetType="{x:Type Button}">
-            <!-- <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
-            <Setter Property="Background" Value="{StaticResource Button.Background}" />
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Border}" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Padding" Value="5,2,5,2" />
-            <Setter Property="FontFamily" Value="{DynamicResource {x:Static SystemFonts.MessageFontFamilyKey}}" />
-            <Setter Property="FontSize" Value="{DynamicResource {x:Static SystemFonts.MessageFontSizeKey}}" />
-            <Setter Property="Cursor" Value="Hand" />-->
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <!--  外层容器：控制按钮整体背景和边框  -->
-                        <Border
-                            x:Name="border"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            SnapsToDevicePixels="True">
-                            <!--  内容呈现器：显示按钮文本/图标  -->
-                            <ContentPresenter
-                                x:Name="contentPresenter"
-                                Margin="{TemplateBinding Padding}"
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Focusable="False"
-                                RecognizesAccessKey="True"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </Border>
-                        <!--  状态触发器：覆盖所有默认交互状�?  -->
-                        <!-- <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border"
-                                        Property="Background"
-                                        Value="{StaticResource Button.MouseOver.Background}" />
-                                <Setter TargetName="border"
-                                        Property="BorderBrush"
-                                        Value="{StaticResource Button.MouseOver.Border}" />
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border"
-                                        Property="Background"
-                                        Value="{StaticResource Button.Pressed.Background}" />
-                                <Setter TargetName="border"
-                                        Property="BorderBrush"
-                                        Value="{StaticResource Button.Pressed.Border}" />
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="border"
-                                        Property="Background"
-                                        Value="{StaticResource Button.Disabled.Background}" />
-                                <Setter TargetName="border"
-                                        Property="BorderBrush"
-                                        Value="{StaticResource Button.Disabled.Border}" />
-                                <Setter TargetName="contentPresenter"
-                                        Property="TextElement.Foreground"
-                                        Value="{StaticResource Button.Disabled.Foreground}" />
-                            </Trigger>
-                            <Trigger Property="IsFocused" Value="True">
-                                <Setter TargetName="border"
-                                        Property="BorderBrush"
-                                        Value="{StaticResource Button.Focus.Border}" />
-                            </Trigger>
-                            <Trigger Property="Content" Value="{x:Null}">
-                                <Setter TargetName="contentPresenter"
-                                        Property="Visibility"
-                                        Value="Collapsed" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>-->
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
+    MinWidth="600"
+    MinHeight="200"
+    Cursor="Hand"
+    mc:Ignorable="d">
+    <Window.Resources />
     <shell:WindowChrome.WindowChrome>
-        <!--  标题栏高度（用于拖拽窗口�?  -->
-        <!--  去掉玻璃效果  -->
-        <!--  可调整窗口大�?的边框厚�?  -->
-        <!--  窗口圆角�?可选）  -->
-        <!--  是�?�使用系统标题按�?�（可选）  -->
+
         <shell:WindowChrome
-            CaptionHeight="32"
-            CornerRadius="8"
+            CaptionHeight="34"
             GlassFrameThickness="1"
+            NonClientFrameEdges="None"
             ResizeBorderThickness="4"
             UseAeroCaptionButtons="False" />
     </shell:WindowChrome.WindowChrome>
-	
+
     <Grid>
-        <!--  标题�?  -->
+        <Grid.Style>
+            <Style TargetType="{x:Type Grid}">
+                <Setter Property="Margin" Value="0" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=WindowState}" Value="Maximized">
+                        <Setter Property="Margin" Value="8" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
         <Grid
-            Height="32"
+            Height="34"
             VerticalAlignment="Top"
-            Background="#F8F9FA">
+            Background="{StaticResource Background}">
             <Button
                 HorizontalAlignment="Right"
                 Click="Button_Click"
@@ -116,7 +46,7 @@
                 WindowChrome.IsHitTestVisibleInChrome="True" />
         </Grid>
         <!--  主内容区  -->
-        <Grid Margin="0,32,0,0">
+        <Grid Margin="0,34,0,0">
             <!--  内容区域  -->
         </Grid>
     </Grid>

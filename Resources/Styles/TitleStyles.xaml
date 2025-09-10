@@ -1,0 +1,137 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="ShellViewStyle" TargetType="{x:Type Window}">
+        <Setter Property="FontFamily" Value="Microsoft YaHei UI" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome
+                    CaptionHeight="{Binding Path=(SystemParameters.WindowNonClientFrameThickness).Top}"
+                    GlassFrameThickness="1"
+                    NonClientFrameEdges="None"
+                    ResizeBorderThickness="5"
+                    UseAeroCaptionButtons="False" />
+            </Setter.Value>
+        </Setter>
+        <!--<Setter Property="Icon" Value="{DynamicResource icon}" />-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Border
+                        x:Name="WindowBorder"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <Grid x:Name="LayoutRoot">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <!--#region 标题栏-->
+                            <Grid
+                                x:Name="WindowTitlePanel"
+                                Grid.Row="0"
+                                Height="{Binding Path=(SystemParameters.WindowNonClientFrameThickness).Top}"
+                                Background="{DynamicResource TitleBar}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--#region 标题-->
+                                <StackPanel Orientation="Horizontal">
+                                    <ContentControl
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding Title}"
+                                        FontSize="{x:Static SystemFonts.CaptionFontSize}"
+                                        IsTabStop="False" />
+                                </StackPanel>
+                                <!--#endregion 标题-->
+
+                                <!--#region 系统功能键-->
+                                <StackPanel
+                                    x:Name="WindowCommandButtonsPanel"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right"
+                                    Orientation="Horizontal"
+                                    WindowChrome.IsHitTestVisibleInChrome="True">
+                                    <Button
+                                        x:Name="MinimizeButton"
+                                        Command="{Binding MinimizeWindowCommand}"
+                                        Style="{DynamicResource MinimizeButtonStyle}" />
+                                    <Grid Margin="1,0">
+                                        <Button
+                                            x:Name="RestoreButton"
+                                            Command="{Binding RestoreWindowCommand}"
+                                            Style="{DynamicResource RestoreButtonStyle}"
+                                            Visibility="Collapsed" />
+                                        <Button
+                                            x:Name="MaximizeButton"
+                                            Command="{Binding MaximizeWindowCommand}"
+                                            Style="{DynamicResource MaximizeButtonStyle}" />
+                                    </Grid>
+                                    <Button
+                                        x:Name="CloseButton"
+                                        Command="{Binding CloseWindowCommand}"
+                                        Style="{DynamicResource CloseButtonStyle}" />
+                                </StackPanel>
+                                <!--#endregion 系统功能键-->
+                            </Grid>
+                            <!--#endregion 标题栏-->
+
+                            <!--#region 内容-->
+                            <Grid Grid.Row="1" Background="{TemplateBinding Background}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="28" />
+                                </Grid.RowDefinitions>
+                                <!--  工作区  -->
+                                <AdornerDecorator KeyboardNavigation.IsTabStop="False">
+                                    <ContentControl
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Content="{TemplateBinding Content}"
+                                        KeyboardNavigation.TabNavigation="Cycle" />
+                                </AdornerDecorator>
+
+                                <!--  状态栏  -->
+                                <Grid Grid.Row="1" Background="{DynamicResource themeColor}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Path
+                                            Width="10"
+                                            Height="10"
+                                            Margin="10,0"
+                                            Data="{DynamicResource Success}"
+                                            Fill="LawnGreen"
+                                            Stretch="UniformToFill" />
+                                    </StackPanel>
+                                    <ResizeGrip
+                                        x:Name="ResizeGrip"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Bottom"
+                                        IsTabStop="False"
+                                        Visibility="Collapsed" />
+                                </Grid>
+                            </Grid>
+                            <!--#endregion 内容-->
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter TargetName="LayoutRoot" Property="Margin" Value="8" />
+                            <Setter TargetName="RestoreButton" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="MaximizeButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>
